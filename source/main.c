@@ -16,12 +16,12 @@ typedef struct {
 
 TitleInfo titles[] = {
 
-{ 0x4003000008f02LL, "home_menu_usa"},
-{ 0x4003000008202LL, "home_menu_jpn"},
-{ 0x4003000009802LL, "home_menu_eur"},
-{ 0x400300000A102LL, "home_menu_chn"},
-{ 0x400300000A902LL, "home_menu_kor"},
-{ 0x400300000B102LL, "home_menu_twn"},
+{ 0x4001000021500LL, "_3ds_sound_usa"},
+{ 0x4001000020500LL, "_3ds_sound_jpn"},
+{ 0x4001000022500LL, "_3ds_sound_eur"},
+{ 0x4001000026500LL, "_3ds_sound_chn"},
+{ 0x4001000027500LL, "_3ds_sound_kor"},
+{ 0x4001000028500LL, "_3ds_sound_twn"},
 
 };
 
@@ -242,12 +242,12 @@ Result dumpCode(u64 tid , char* path)
 			//return 2;
 		}
 		
-		FILE* f = fopen("sdmc:/3ds/dspfirm.cdc", "wb");
+		FILE* f = fopen("sdmc:/3ds/dspfirm2.cdc", "wb");
 		if(!f) { linearFree(decompressedBuffer); return 2; }
 		fwrite(dsp_loc, 1, dsp_size, f);
 		fclose(f);
 		
-		printf("\nDsp firm written to: sdmc:/3ds/dspfirm.cdc\n\n");
+		printf("\nDsp firm written to: sdmc:/3ds/dspfirm2.cdc\n\n");
 		dsp_test();
 		printf("No more action required!\n");
 	}
@@ -279,7 +279,7 @@ int main(int argc, char** argv)
 	printf("\x1b[0;0H"); //back to white text and cursor to top left corner
 	
 	printf("                  DSP1 - zoogie\n\n\n");  //(50 - 13) / 2 = 18
-	printf("Extracting home menu .code ...\n");
+	printf("Extracting 3ds sound .code ...\n");
 	
 	gfxSetDoubleBuffering(GFX_BOTTOM, false);
 	u8 *fb = gfxGetFramebuffer(GFX_BOTTOM, GFX_LEFT, NULL, NULL);
