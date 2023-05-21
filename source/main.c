@@ -242,12 +242,12 @@ Result dumpCode(u64 tid , char* path)
 			//return 2;
 		}
 		
-		FILE* f = fopen("sdmc:/3ds/dspfirm2.cdc", "wb");
+		FILE* f = fopen("sdmc:/3ds/dspaudio.cdc", "wb");
 		if(!f) { linearFree(decompressedBuffer); return 2; }
 		fwrite(dsp_loc, 1, dsp_size, f);
 		fclose(f);
 		
-		printf("\nDsp firm written to: sdmc:/3ds/dspfirm2.cdc\n\n");
+		printf("\nDsp firm written to: sdmc:/3ds/dspaudio.cdc\n\n");
 		dsp_test();
 		printf("No more action required!\n");
 	}
